@@ -16,7 +16,7 @@ Initially, KarmaPay requires you to store the necessary API keys for all the pay
 
 To initiate a payment, use the KarmaPay Create Order API to generate a new order. This action creates a dedicated payment page hosted on the specified payment domain.
 
-- **Action**: Use the Create Order API. Refer to the [KarmaPay API Documentation](https://karmapay.docs.api) for detailed instructions.
+- **Action**: Use the Create Order API. 
 
 ### Step 3: Redirect the Customer
 
