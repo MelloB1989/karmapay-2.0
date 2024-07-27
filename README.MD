@@ -4,10 +4,6 @@
 
 KarmaPay is designed to simplify the integration of multiple payment gateways into your application, providing a unified, secure, and efficient way to handle online payments. By leveraging KarmaPay, developers can use a single API endpoint to access a variety of payment services, minimizing client-side code and shifting payment handling logic to the server side for better security and efficiency.
 
-## Workflow Diagram
-
-![KarmaPay Workflow](./image.png)
-
 ## Step-by-Step Workflow
 
 ### Step 1: Store API Keys
