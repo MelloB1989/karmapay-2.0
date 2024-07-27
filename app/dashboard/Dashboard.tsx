@@ -26,7 +26,7 @@ const Dashboard: React.FC = () => {
     datasets: [
       {
         label: 'Daily Transactions',
-        data: [150, 200, 180, 220, 250, 270, 300],
+        data: [150, 200, 1800, 220, 2500, 270, 300],
         backgroundColor: 'rgba(153, 102, 255, 0.2)',
         borderColor: 'rgba(153, 102, 255, 1)',
         borderWidth: 1,
