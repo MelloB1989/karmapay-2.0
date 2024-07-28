@@ -22,7 +22,7 @@ const Register: React.FC = () => {
       setError('Please fill out all fields');
       return;
     }
-    await axios.post(`${config.api_url}/${config.api_v}/register`,{
+    await axios.post(`${config.api_url}/${config.api_v}/users/create`,{
       username: username,
       subdomain : subdomain,
       business_name : business_name,
@@ -31,6 +31,7 @@ const Register: React.FC = () => {
     }, {
       headers: {
         'Content-Type': 'application/json',
+        'x-karma-admin-auth': 'ajbkbakweiuy387yeuqq@wfahdjhsabd'
       }
     })
     
