@@ -3,6 +3,7 @@
 import { config } from '@/config'
 import React, { useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Register: React.FC = () => {
   const [username, setUsername] = useState<string>('');
@@ -14,7 +15,9 @@ const Register: React.FC = () => {
 
   const handleRegister = async(event: React.FormEvent) => {
     event.preventDefault();
-
+    
+    const id = toast.loading("Registering User");
+    
     if (username.trim() === '' || subdomain.trim() === '' || business_name.trim() === '' || business_url.trim() === '' || password.trim() === '') {
       setError('Please fill out all fields');
       return;
@@ -30,7 +33,9 @@ const Register: React.FC = () => {
         'Content-Type': 'application/json',
       }
     })
-
+    
+    toast.dismiss(id);
+    toast.success("User Registered");
     // Perform registration logic here, for example, API call to register user
     //console.log('Registering with:', { username, name, business_name, business_url, password });
 
