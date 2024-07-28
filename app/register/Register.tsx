@@ -1,31 +1,44 @@
-"use client";
 
+"use client";
+import { config } from '@/config'
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const Register: React.FC = () => {
   const [username, setUsername] = useState<string>('');
-  const [name, setName] = useState<string>('');
-  const [phone, setPhone] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
+  const [subdomain, setSubdomain] = useState<string>('');
+  const [business_name, setBusiness_name] = useState<string>('');
+  const [business_url, setBusiness_url] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string>('');
 
-  const handleRegister = (event: React.FormEvent) => {
+  const handleRegister = async(event: React.FormEvent) => {
     event.preventDefault();
 
-    if (username.trim() === '' || name.trim() === '' || phone.trim() === '' || email.trim() === '' || password.trim() === '') {
+    if (username.trim() === '' || subdomain.trim() === '' || business_name.trim() === '' || business_url.trim() === '' || password.trim() === '') {
       setError('Please fill out all fields');
       return;
     }
+    await axios.post(`${config.api_url}/${config.api_v}/register`,{
+      username: username,
+      subdomain : subdomain,
+      business_name : business_name,
+      business_url,
+      password
+    }, {
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
 
     // Perform registration logic here, for example, API call to register user
-    console.log('Registering with:', { username, name, phone, email, password });
+    //console.log('Registering with:', { username, name, business_name, business_url, password });
 
     // Clear form fields after registration
     setUsername('');
-    setName('');
-    setPhone('');
-    setEmail('');
+    setSubdomain('');
+    setBusiness_name('');
+    setBusiness_url('');
     setPassword('');
     setError('');
   };
@@ -56,34 +69,34 @@ const Register: React.FC = () => {
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="name" className="text-gray-600 text-sm">Your Name</label>
+            <label htmlFor="subdomain" className="text-gray-600 text-sm">Subdomain</label>
             <input
               type="text"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              id="subdomain"
+              value={subdomain}
+              onChange={(e) => setSubdomain(e.target.value)}
               className="mt-1 p-2 border border-gray-300 rounded-lg text-black text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="phone" className="text-gray-600 text-sm">Your Phone</label>
+            <label htmlFor="business_name" className="text-gray-600 text-sm">Your business_name</label>
             <input
               type="tel"
-              id="phone"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              id="business_name"
+              value={business_name}
+              onChange={(e) => setBusiness_name(e.target.value)}
               className="mt-1 p-2 border border-gray-300 rounded-lg text-black text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="email" className="text-gray-600 text-sm">Your Email</label>
+            <label htmlFor="business_url" className="text-gray-600 text-sm">Your business_url</label>
             <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="business_url"
+              id="business_url"
+              value={business_url}
+              onChange={(e) => setBusiness_url(e.target.value)}
               className="mt-1 p-2 border border-gray-300 rounded-lg text-black text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
