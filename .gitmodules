@@ -1,3 +1,6 @@
 [submodule "backend"]
 	path = backend
 	url = https://github.com/MelloB1989/karmapay.backend
+[submodule "payment_gateway"]
+	path = payment_gateway
+	url = https://github.com/MelloB1989/karmapay.pg
