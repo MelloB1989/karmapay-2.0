@@ -3,7 +3,6 @@
 import Navbar from '@/components/Navbar/Navbar';
 import React, { useState } from 'react';
 import { FaCamera } from 'react-icons/fa'; // Camera icon for image upload
- // Import the Navbar component
 
 const Settings: React.FC = () => {
   // States for form inputs
@@ -153,7 +152,7 @@ const Settings: React.FC = () => {
               
               <div className="flex flex-col space-y-4">
                 <label className="text-gray-600 text-sm mb-1">RazorPay API Key</label>
-                <div className="flex space-x-4">
+                <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-4">
                   <input
                     type="text"
                     id="razorpayApiKey"
@@ -175,7 +174,7 @@ const Settings: React.FC = () => {
 
               <div className="flex flex-col space-y-4">
                 <label className="text-gray-600 text-sm mb-1">PhonePE API Key</label>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <input
                     type="text"
                     id="phonepeSaltIndex"
@@ -213,7 +212,7 @@ const Settings: React.FC = () => {
 
               <div className="flex flex-col space-y-4">
                 <label className="text-gray-600 text-sm mb-1">Stripe API Key</label>
-                <div className="flex space-x-4">
+                <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-4">
                   <input
                     type="text"
                     id="stripeApiKey"
