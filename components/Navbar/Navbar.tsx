@@ -50,18 +50,6 @@ const Navbar: React.FC = () => {
           >
             Manage Orders
           </button>
-          <button
-            onClick={() => navigateTo('/your-customers')}
-            className="text-gray-600 text-sm hover:text-gray-800"
-          >
-            Your Customers
-          </button>
-          <button
-            onClick={() => navigateTo('/docs')}
-            className="text-gray-600 text-sm hover:text-gray-800"
-          >
-            Docs
-          </button>
           <button className="relative text-gray-600 hover:text-gray-800">
             <FaBell className="text-xl" />
           </button>
